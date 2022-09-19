@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "424397975183",
+    "project_id": "time-tracker-7bada",
+    "storage_bucket": "time-tracker-7bada.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424397975183:android:81727c9e98c19e36d88afa",
+        "android_client_info": {
+          "package_name": "com.example.flutter_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424397975183-klial0htl60rt8fijmpuvnhq7mj6diff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_1",
+            "certificate_hash": "33811fe549b5e79cb4d7539a16a983cfbeb754fa"
+          }
+        },
+        {
+          "client_id": "424397975183-llgpqfr3n1iflntsng5jqqriajl33kqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTBcFR1MbtotPSYLu5UepeXbRoNtPAycs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424397975183-llgpqfr3n1iflntsng5jqqriajl33kqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
