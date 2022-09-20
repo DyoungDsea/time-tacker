@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'DyoungDsea',
         theme: ThemeData(primarySwatch: Colors.indigo),
-        home: LandingPage(),
+        home:const LandingPage(),
       ),
     );
   }

@@ -25,7 +25,7 @@ class JobsPage extends StatelessWidget {
     }
   }
 
-  Future<void> _confirmSignOut(BuildContext context) async {
+  Future<void> _confirmSignOut(BuildContext context, [bool mounted = true]) async {
     final didRequestSignOut = await showAlertDialog(
       context,
       title: "Logout",
@@ -34,6 +34,7 @@ class JobsPage extends StatelessWidget {
       cancelActionText: "Cancel",
     );
     if (didRequestSignOut == true) {
+      if (!mounted) return;
       _signOut(context);
     }
   }
@@ -73,7 +74,7 @@ class JobsPage extends StatelessWidget {
             final children = jobs!
                 .map((job) => JobListTile(
                       job: job,
-                      onTap: () {},
+                      onTap: () =>EditJobPage.show(context, job: job),
                     ))
                 .toList();
             return ListView(

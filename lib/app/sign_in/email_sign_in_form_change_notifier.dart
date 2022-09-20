@@ -48,6 +48,7 @@ class _EmailSignInFormChangeNotifierState
   Future<void> _submit() async {
     try {
       await model.submit();
+      if (!mounted) return;
       Navigator.of(context).pop();
     } on FirebaseAuthException catch (e) {
       showExceptionAlertDialog(

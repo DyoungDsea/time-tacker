@@ -8,7 +8,7 @@ import 'package:flutter_1/services/auth.dart';
 import 'package:provider/provider.dart';
 
 class EmailSignInFormBlocBased extends StatefulWidget {
-  EmailSignInFormBlocBased({Key? key, required this.bloc}) : super(key: key);
+ const EmailSignInFormBlocBased({Key? key, required this.bloc}) : super(key: key);
   final EmailSignInBloc bloc;
 
   static Widget create(BuildContext context) {
@@ -46,6 +46,7 @@ class _EmailSignInFormBlocBasedState extends State<EmailSignInFormBlocBased> {
   Future<void> _submit() async {
     try {
       await widget.bloc.submit();
+      if (!mounted) return;
       Navigator.of(context).pop();
     } on FirebaseAuthException catch (e) {
       showExceptionAlertDialog(
