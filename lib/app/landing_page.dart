@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_1/app/home/jobs_page.dart';
+import 'package:flutter_1/app/home/jobs/jobs_page.dart';
 import 'package:flutter_1/app/sign_in/sign_in_page.dart';
 import 'package:flutter_1/services/auth.dart';
 import 'package:flutter_1/services/database.dart';

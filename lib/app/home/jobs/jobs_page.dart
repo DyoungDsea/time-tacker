@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_1/app/home/models.dart';
+import 'package:flutter_1/app/home/jobs/edit_job_page.dart';
+import 'package:flutter_1/app/home/jobs/job_list_tile.dart';
+import 'package:flutter_1/app/home/models/models.dart';
 import 'package:flutter_1/common_widgets/show_alert_dialog.dart';
 import 'package:flutter_1/common_widgets/show_exception_alert.dart';
 import 'package:flutter_1/services/auth.dart';
@@ -36,19 +38,6 @@ class JobsPage extends StatelessWidget {
     }
   }
 
-  Future<void> _createJob(BuildContext context) async {
-    try {
-      final database = Provider.of<Database>(context, listen: false);
-      await database.createJob(Job(name: "Blogging", ratePerHour: 10));
-    } on FirebaseException catch (e) {
-      showExceptionAlertDialog(
-        context,
-        title: "Operation Fail",
-        exception: e,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +57,7 @@ class JobsPage extends StatelessWidget {
       ),
       body: _buildContents(context),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _createJob(context),
+        onPressed: () => EditJobPage.show(context),
         child: const Icon(Icons.add),
       ),
     );
@@ -81,12 +70,17 @@ class JobsPage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final jobs = snapshot.data;
-            final children = jobs!.map((job) => Text(job.name)).toList();
+            final children = jobs!
+                .map((job) => JobListTile(
+                      job: job,
+                      onTap: () {},
+                    ))
+                .toList();
             return ListView(
               children: children,
             );
           }
-          return const Center(child:CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         });
   }
 }
